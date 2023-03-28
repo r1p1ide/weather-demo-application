@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "3d89af70-228e-4cc7-b99c-1667418511bf",
+		"name": "weather-demo-application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API weather yandex",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Yandex-API-Key",
+						"value": "bafafca4-717a-4ab2-8ba8-057420a3dbf2",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://api.weather.yandex.ru/v2/forecast?lat=55.71768&lon=37.739016",
+					"protocol": "https",
+					"host": [
+						"api",
+						"weather",
+						"yandex",
+						"ru"
+					],
+					"path": [
+						"v2",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "55.71768"
+						},
+						{
+							"key": "lon",
+							"value": "37.739016"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API geocode yandex",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://geocode-maps.yandex.ru/1.x/?apikey=20e092cc-ab10-4621-8835-12c209fda763&geocode=Россия, Москва, Волжский бульвар 8/2&format=json&results=1",
+					"protocol": "https",
+					"host": [
+						"geocode-maps",
+						"yandex",
+						"ru"
+					],
+					"path": [
+						"1.x",
+						""
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "20e092cc-ab10-4621-8835-12c209fda763"
+						},
+						{
+							"key": "geocode",
+							"value": "Россия, Москва, Волжский бульвар 8/2"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "results",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/current",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/v1/current?address=Россия, Москва, Волжский бульвар 8к2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"current"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "Россия, Москва, Волжский бульвар 8к2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/forecast",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/v1/forecast?address=Россия, Москва, Волжский бульвар 8к2&timestamp=2023-03-29T14:38",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "Россия, Москва, Волжский бульвар 8к2"
+						},
+						{
+							"key": "timestamp",
+							"value": "2023-03-29T14:38"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
