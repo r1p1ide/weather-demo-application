@@ -16,14 +16,16 @@ public class WeatherController {
     private final WeatherService weatherService;
 
     @GetMapping(value = "/current")
-    public BaseWeatherResponse getCurrentWeather(@RequestParam String address) {
-        return weatherService.getCurrentWeather(address);
+    public BaseWeatherResponse getCurrentWeather(@RequestParam String address,
+                                                 @RequestHeader("Own-Auth-UserName") String username) {
+        return weatherService.getCurrentWeather(address, username);
     }
 
     @GetMapping(value = "/forecast")
     public BaseWeatherResponse getWeatherAtTime(@RequestParam String address,
                                                 @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-                                                        LocalDateTime timestamp) {
-        return weatherService.getWeatherAtTime(address, timestamp);
+                                                        LocalDateTime timestamp,
+                                                @RequestHeader("Own-Auth-UserName") String username) {
+        return weatherService.getWeatherAtTime(address, timestamp, username);
     }
 }

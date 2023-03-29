@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public interface WeatherService {
 
-    BaseWeatherResponse getCurrentWeather(String address);
+    BaseWeatherResponse getCurrentWeather(String address, String username);
 
-    BaseWeatherResponse getWeatherAtTime(String address, LocalDateTime timestamp);
+    BaseWeatherResponse getWeatherAtTime(String address, LocalDateTime timestamp, String username);
 }
