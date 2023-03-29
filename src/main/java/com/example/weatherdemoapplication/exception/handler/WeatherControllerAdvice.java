@@ -1,5 +1,6 @@
 package com.example.weatherdemoapplication.exception.handler;
 
+import com.example.weatherdemoapplication.exception.UnauthorizedException;
 import com.example.weatherdemoapplication.util.ErrorDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -28,5 +29,13 @@ public class WeatherControllerAdvice {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(new ErrorDetails(400, LocalDateTime.now(), false, "Указан неверный адрес."));
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ErrorDetails> handleUnauthorizedException() {
+        log.error("Caught UnauthorizedException");
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(new ErrorDetails(400, LocalDateTime.now(), false, "Доступ запрещен."));
     }
 }
